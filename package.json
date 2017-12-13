@@ -20,5 +20,15 @@
   "bugs": {
     "url": "https://github.com/mmacdonald1/project-3/issues"
   },
-  "homepage": "https://github.com/mmacdonald1/project-3#readme"
+  "homepage": "https://github.com/mmacdonald1/project-3#readme",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "mysql2": "^1.5.1",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "sequelize": "^4.28.1"
+  }
 }
