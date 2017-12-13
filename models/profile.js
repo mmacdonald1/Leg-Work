@@ -1,56 +1,58 @@
 module.exports = (sequelize, DataTypes) => {
-  var Company = sequelize.define('Company', {
+  var Profile = sequelize.define('Profile', {
     UserId: {
              type: DataTypes.INTEGER,
              allowNull: false
          },
-    companyName : {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [1]
-      }
-    },
-    website: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [1]
-      }
-    },
-    culture: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-      validate: {
-        len: [1]
-      }
-    },
-    benefits: {
-      type: DataTypes.TEXT,
-      allowNull: true,
-      validate: {
-        len: [1]
-      }
-    },
-    companySite: {
+    name : {
       type: DataTypes.STRING,
       allowNull: true,
       validate: {
         len: [1]
       }
     },
-    notes: {
-      type: DataTypes.TEXT,
-      allowNull: false,
+    url : {
+      type: DataTypes.STRING,
+      allowNull: true,
       validate: {
         len: [1]
       }
+    },
+    url_one : {
+      type: DataTypes.STRING,
+      allowNull: true,
+      validate: {
+        len: [1]
+      }
+    },
+    url_two : {
+      type: DataTypes.STRING,
+      allowNull: true,
+      validate: {
+        len: [1]
+      }
+    },
+
+    achievements: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+
+    },
+    questions: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+
+    },
+    bio: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+
     }
 
   });
 
-  Company.associate = function (models) {
-    models.Company.belongsTo(models.User, {
+  Profile.associate = function (models) {
+    models.Profile.belongsTo(models.User, {
       onDelete: "CASCADE",
       foreignKey: {
         allowNull: false
@@ -58,5 +60,5 @@ module.exports = (sequelize, DataTypes) => {
     });
   };
 
-  return Company;
+  return Profile;
 };

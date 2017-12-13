@@ -2,6 +2,15 @@
 module.exports = (sequelize, DataTypes) => {
   var Application = sequelize.define('Application', {
 //date of last action? first action? timestamp?
+UserId: {
+         type: DataTypes.INTEGER,
+         allowNull: false
+     },
+     CompanyId: {
+         type: DataTypes.INTEGER,
+         allowNull: false
+     },
+
     date : {
       type: DataTypes.STRING,
       allowNull: false,
