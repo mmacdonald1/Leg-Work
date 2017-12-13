@@ -2,42 +2,40 @@
 module.exports = (sequelize, DataTypes) => {
   var Contacts = sequelize.define('Contacts', {
 //date of last action? first action? timestamp?
+UserId: {
+         type: DataTypes.INTEGER,
+         allowNull: false
+     },
     companyName : {
       type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [1]
-      }
+      allowNull: true,
+
     },
 
     Name : {
       type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [1]
-      }
+      allowNull: true,
+
     },
     jobTitle: {
       type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [1]
-      }
+      allowNull: true,
+
     },
     email: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
+      unique: true,
       validate: {
-        len: [1]
+        isEmail: true
       }
+
     },
     phone: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      validate: {
-        len: [1]
-      }
+      allowNull: true,
     },
+    
     type: {
       type: DataTypes.STRING,
       allowNull: false,
