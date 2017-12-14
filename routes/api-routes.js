@@ -1,12 +1,11 @@
 var db = require('../models');
 var express = require('express');
-var router = express.Router();
 
 var passport = require("../config/passport");
 
 module.exports = function(app) {
     //get route for getting all the applications
-    router.get('/api/apps', function(req, res) {
+    app.get('/api/apps', function(req, res) {
         var query = {};
         if (req.query.user_id) {
           query.UserId = req.query.user_id
@@ -15,11 +14,35 @@ module.exports = function(app) {
         //we set the value to an array of the models we want to include
         db.Application.findAll({
           where: query,
-        
+
         }).then(function(dbApp) {
           res.json(dbApp);
         });
-      };
+      });
 
+      //if member redirect to members page
+      app.post("/api/login", passport.authenticate("local"), function(req, res) {
+        res.json("/members");
+      });
+
+      //if signup is filled out create user
+    app.post("/api/signup", function(req, res) {
+      console.log(req.body);
+      db.User.create({
+        email: req.body.email,
+        password: req.body.password
+      }).then(function() {
+        res.redirect(307, "/api/login");
+      }).catch(function(err) {
+        console.log(err);
+        res.json(err);
+      });
+    });
+
+    //if logout function redirect to home
+    app.get("/logout", function(req, res) {
+      req.logout();
+      res.redirect("/");
+    });
 
     };
