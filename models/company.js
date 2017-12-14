@@ -32,13 +32,7 @@ module.exports = (sequelize, DataTypes) => {
         len: [1]
       }
     },
-    companySite: {
-      type: DataTypes.STRING,
-      allowNull: true,
-      validate: {
-        len: [1]
-      }
-    },
+  
     notes: {
       type: DataTypes.TEXT,
       allowNull: false,
