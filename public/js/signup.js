@@ -2,10 +2,12 @@ $(document).ready(function() {
   var signUpForm = $("form.signup");
   var emailInput = $("input#email-input");
   var passwordInput = $("input#password-input");
+  var usernameInput = $("input#username-input");
 
   signUpForm.on("submit", function(event) {
     event.preventDefault();
     var userData = {
+      username: usernameInput.val().trim(),
       email: emailInput.val().trim(),
       password: passwordInput.val().trim()
     };
@@ -13,13 +15,15 @@ $(document).ready(function() {
     if (!userData.email || !userData.password) {
       return;
     }
-    signUpUser(userData.email, userData.password);
+    signUpUser(userData.username, userData.email, userData.password);
+    usernameInput.val("");
     emailInput.val("");
     passwordInput.val("");
   });
 
-  function signUpUser(email, password) {
+  function signUpUser(username, email, password) {
     $.post("/api/signup", {
+      username: username,
       email: email,
       password: password
     }).then(function(data) {
