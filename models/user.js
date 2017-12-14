@@ -19,30 +19,31 @@ module.exports = function(sequelize, DataTypes) {
     password: {
       type: DataTypes.STRING,
       allowNull: false
-    },
-    classMethod: {
-          associate: function(models) {
-              User.hasMany(models.Application, {
+    }
+
+  });
+
+          User.associate = function(models) {
+            User.hasMany(models.Application, {
                   onDelete: "cascade"
               });
-          }
-      },
-      classMethods: {
-          associate: function(models) {
+          };
+
+
+          User.associate = function(models) {
               User.hasMany(models.Contacts, {
                   onDelete: "cascade"
               });
-          }
-      },
-      classMethods: {
-          associate: function(models) {
+          };
+
+          User.associat = function(models) {
               User.hasOne(models.Profile, {
                   onDelete: "cascade"
               });
-          }
-      }
-  });
-  
+          };
+
+
+
   User.prototype.validPassword = function(password) {
     return bcrypt.compareSync(password, this.password);
   };
@@ -50,8 +51,6 @@ module.exports = function(sequelize, DataTypes) {
     user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
   });
 
-  User.associate = function(models) {
-    models.User.hasMany(models.Application);
-  };
+
   return User;
 };
