@@ -1,13 +1,25 @@
 var path = require("path");
 
 var isAuthenticated = require("../config/middleware/isAuthenticated.js");
+
+
+///* Register Partials */
+//hbs = require('hbs'),
+//
+//hbs.registerPartials(__dirname + '/views');
+
 module.exports = function(app) {
   //if user is signed in send to user dash if not redirect to signup
   app.get("/", function(req, res) {
     if (req.user) {
         res.redirect("/members");
       }
-      res.sendFile(path.join(__dirname, "../public/signup.html"));
+      res.render('signup');
+//      res.render('index',{title:'Sign Up'
+//            whichPartial:function(){
+//                return "signup";
+//            }
+//        });
     });
 
     //if user is a signed in send to user dash else send to login
@@ -15,12 +27,17 @@ module.exports = function(app) {
       if (req.user) {
         res.redirect("/members");
       }
-      res.sendFile(path.join(__dirname, "../public/login.html"));
+        res.render('login');
+//      res.render('index', {title:'Log In'
+//            whichPartial:function(){
+//                return "login";
+//            }              
+//        });
     });
 
     //if user is atuhenticated send to user dash
     app.get("/members", isAuthenticated, function(req, res) {
-      res.sendFile(path.join(__dirname, "../public/members.html"));
+      res.render('members',{ hello: "world"});
     });
 
 };
