@@ -31,19 +31,15 @@ module.exports = function(app) {
 //      res.render('index', {title:'Log In'
 //            whichPartial:function(){
 //                return "login";
-//            }              
+//            }
 //        });
     });
 
     //if user is atuhenticated send to user dash
     app.get("/members", isAuthenticated, function(req, res) {
-<<<<<<< HEAD
       console.log('yo');
       //res.sendFile(path.join(__dirname, "../public/members.html"));
       res.render("members", { hello: "world"});
-=======
-      res.render('members',{ hello: "world"});
->>>>>>> 9a6efff6efe2046cfe6d0fc1764a98fb9caab7d0
     });
 
 
