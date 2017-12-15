@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> ANI'S INPUT FORM </title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+</head>
+
+<style>
+#success_message {display:none;}
+</style>
+
+<body>
+
+<div class="container">
+
+    <form class="well form-horizontal" action=" " method="post"  id="contact_form">
+<fieldset>
+
+<!-- Form Name -->
+<legend> INPUT FORM </legend>
+
+<!-- Text input-->
+
+<div class="form-group">
+  <label class="col-md-4 control-label">Company Name</label>
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"> </span>
+  <input  name="company_name" placeholder="Company Name" class="form-control"  type="text">
+    </div>
+  </div>
+</div>
+
+<!-- Text input-->
+
+<div class="form-group">
+  <label class="col-md-4 control-label"> Job Posting</label>
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+  <span class="input-group-addon"></span>
+  <input name="job_posting" placeholder="Job Posting" class="form-control"  type="text">
+    </div>
+  </div>
+</div>
+
+<!-- Text input-->
+       <div class="form-group">
+  <label class="col-md-4 control-label"> Stage </label>
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"></span>
+  <input name="stage" placeholder="Stage" class="form-control"  type="text">
+    </div>
+  </div>
+</div>
+
+<!-- Scroll Option -->
+
+<div class="form-group">
+  <label class="col-md-4 control-label"> Next Action </label>
+    <div class="col-md-4 selectContainer">
+    <div class="input-group">
+        <span class="input-group-addon"></i></span>
+    <select name="state" class="form-control selectpicker" >
+      <option value=" " > Next Action </option>
+      <option> a </option>
+      <option> b </option>
+      <option> c </option>
+      <option> d </option>
+    </select>
+  </div>
+</div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label"> Company URL </label>
+   <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"></span>
+  <input name="website" placeholder="Website" class="form-control" type="text">
+    </div>
+  </div>
+</div>
+
+
+<!-- Text area -->
+
+<div class="form-group">
+  <label class="col-md-4 control-label">Additional Notes</label>
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"></i></span>
+        	<textarea class="form-control" name="comment" placeholder="Additional Notes"></textarea>
+  </div>
+  </div>
+</div>
+
+<!-- Success message -->
+<div class="alert alert-success" role="alert" id="success_message"> Thank you! <i class="glyphicon glyphicon-thumbs-up"></i></div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label"></label>
+  <div class="col-md-4">
+    <button type="submit" class="btn btn-warning"> Submit <span class="glyphicon glyphicon-send"></span></button>
+    <button type="submit" class="btn btn-warning"> Edit <span class="glyphicon glyphicon-send"></span></button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+</div>
+    </div>
+
+<!-- /.container -->
+
+<!-- //JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+<script src='js/jquery-2.2.3.min.js'></script>
+<script src='js/handlebars-v4.0.11.js'></script>
+<script src='js/scripts.js'></script>
+
+</body>
+</html>

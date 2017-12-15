@@ -5,28 +5,36 @@ var passport = require("../config/passport");
 
 module.exports = function(app) {
     //get route for getting all the applications
-    app.get('/api/apps', function(req, res) {
-        var query = {};
-        if (req.query.user_id) {
-          query.UserId = req.query.user_id
-        }
+    app.get('/members', function(req, res) {
+
+      console.log("HELL_FUCKIN_O");
+      var query = {};
+  if (req.query.UserId) {
+    query.UserId = req.query.UserId;
+  }
         // Here we add an include property to our options in our findAll query
         //we set the value to an array of the models we want to include
         db.Application.findAll({
-          where: query,
+          where: query
 
         }).then(function(result) {
+
           db.User.findAll({where: query})
           .then(function(dbApp){
             if(req.user){
               res.render('members',{
-                application: result,
-                user: data
+                Application: result,
+                user: dbApp
               })
             }
           })
         });
       });
+
+
+
+
+
 
       //if member redirect to members page
       app.post("/api/login", passport.authenticate("local"), function(req, res) {
@@ -53,5 +61,26 @@ module.exports = function(app) {
       req.logout();
       res.redirect("/");
     });
+
+//takes the data from the application form and submits it to the database
+    app.post('/fetchApps', function (req, res){
+      db.Application.create({
+        UserId: req.user.id,
+        date: req.body.date,
+        companyName: req.body.company_name,
+        jobTitle: req.body.job_posting,
+        stage: req.body.stage,
+        nextAction: req.body.state,
+        website: req.body.website,
+        notes: req.body.comment
+
+      }).then(function(){
+        res.redirect("/members");
+      });
+    });
+
+
+
+
 
     };
