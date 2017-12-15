@@ -15,8 +15,16 @@ module.exports = function(app) {
         db.Application.findAll({
           where: query,
 
-        }).then(function(dbApp) {
-          res.json(dbApp);
+        }).then(function(result) {
+          db.User.findAll({where: query})
+          .then(function(dbApp){
+            if(req.user){
+              res.render('members',{
+                application: result,
+                user: data
+              })
+            }
+          })
         });
       });
 
