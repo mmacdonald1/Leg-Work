@@ -1,5 +1,5 @@
 var path = require("path");
-
+var db = require("../models");
 var isAuthenticated = require("../config/middleware/isAuthenticated.js");
 
 
@@ -38,9 +38,19 @@ module.exports = function(app) {
     //if user is atuhenticated send to user dash
     app.get("/members", isAuthenticated, function(req, res) {
       console.log('yo');
+    //  console.log(query)
+      db.Application.findAll({
+        where:{UserId: req.user.id}})
+        .then(function(result) {
+        console.log(result,' this is our result')
+            res.render('members',{
+              Application: result
+            })
+          })
+        })
+
       //res.sendFile(path.join(__dirname, "../public/members.html"));
-      res.render("members", { hello: "world"});
-    });
+      //res.render("members", { hello: "world"});
 
 
 
