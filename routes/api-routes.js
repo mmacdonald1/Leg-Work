@@ -55,3 +55,11 @@ module.exports = function(app) {
     });
 
     };
+
+    //
+    app.post("/compinput", function(req,res){
+        console.log(req.body);
+        db.Company.findAll({
+            where:{Company_id}
+        })
+    })
