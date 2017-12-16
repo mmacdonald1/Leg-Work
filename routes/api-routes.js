@@ -56,7 +56,7 @@ module.exports = function(app) {
 
     
     //
-    app.post("/compinput", function(req,res){
+    app.post("/api/compinput", function(req,res){
         console.log(req.body);
         db.Company.create({
             companyName: req.body.companyName,
