@@ -39,7 +39,14 @@ module.exports = function(app) {
     app.get("/members", isAuthenticated, function(req, res) {
       console.log('yo');
       //res.sendFile(path.join(__dirname, "../public/members.html"));
-      res.render("members", { hello: "world"});
+        db.Application.findAll({
+        where:{UserId: req.user.id}})
+        .then(function(result) {
+        console.log(result,' this is our result')
+            res.render('members',{
+              Application: result
+            })
+          });
     });
     
     app.get("/compinput", function(req, res) {
