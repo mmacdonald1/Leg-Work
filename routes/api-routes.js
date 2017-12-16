@@ -54,12 +54,20 @@ module.exports = function(app) {
       res.redirect("/");
     });
 
-    };
-
+    
     //
     app.post("/compinput", function(req,res){
         console.log(req.body);
-        db.Company.findAll({
-            where:{Company_id}
-        })
-    })
+        db.Company.create({
+            companyName: req.body.companyName,
+            website: req.body.website,
+            culture: req.body.culture,
+            benefits: req.body.benefits,
+            notes:req.body.notes
+        }).then(function(){
+            res.redirect("/members")
+        });
+    });
+    };
+
+    

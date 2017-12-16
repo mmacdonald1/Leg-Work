@@ -1,5 +1,5 @@
 var path = require("path");
-
+var db = require('../models');
 var isAuthenticated = require("../config/middleware/isAuthenticated.js");
 
 
@@ -41,8 +41,32 @@ module.exports = function(app) {
       //res.sendFile(path.join(__dirname, "../public/members.html"));
       res.render("members", { hello: "world"});
     });
+    
+    app.get("/compinput", function(req, res) {
+      res.render("compinput");
+    });
 
 
-
+    app.get("/company", function(req,res){
+        var query ={};
+        if (req.query.companyName){
+            query.companyName =req.query.companyName;
+        }
+        
+        db.Company.findAll({
+            where:query
+        }).then(function(dbComp){
+            if(req.company){
+               res.render("company",{
+                
+                   Company: result, 
+                
+               }); 
+            }
+        });
+        
+         
+    });
+    
 
 };
