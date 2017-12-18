@@ -13,45 +13,132 @@
         <h2>Welcome <span class="member-name"></span></h2>
 
         <h2>Add an Application</h2>
-        <form class="addnew" action="/displayApps" method="POST">
+        <form class="well form-horizontal" class="makenew" action="/fetchApps" method="POST"  id="contact_form">
+    <fieldset>
 
-          <div class="form-group" >
-              <label for="date">Date Applied</label>
-              <textarea class="form-control" id="date" name="date"></textarea>
+    <!-- Form Name -->
+    <legend> INPUT FORM </legend>
+
+        <!-- Text input-->
+
+        <div class="form-group">
+          <label class="col-md-4 control-label">Date</label>
+          <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+          <span class="input-group-addon"> </span>
+          <input  name="date" placeholder="date" class="form-control"  type="text">
+            </div>
           </div>
-          {{hello}}
-          <div class="form-group">
-              <label for="companyName">Company Name</label>
-              <select class="form-control" id="companyName" name="companyName">
+        </div>
 
-              </select>
-       </div>
+    <!-- Scroll Option -->
+
+    <div class="form-group">
+      <label class="col-md-4 control-label"> Company Name </label>
+        <div class="col-md-4 selectContainer">
+        <div class="input-group">
+            <span class="input-group-addon"></i></span>
+        <select name="company_name" class="form-control selectpicker" >
+          <option value=" " > Company Name </option>
+          {{#each Application}}
+    {{#if this.UserId}}
+          <option> {{this.companyName}} </option>
+
+          {{/if}}
+            {{/each}}
+        </select>
+      </div>
+    </div>
+    </div>
+    <!-- Text input-->
+
+    <div class="form-group">
+      <label class="col-md-4 control-label"> Job Posting</label>
+        <div class="col-md-4 inputGroupContainer">
+        <div class="input-group">
+      <span class="input-group-addon"></span>
+      <input name="job_posting" placeholder="Job Posting" class="form-control"  type="text">
+        </div>
+      </div>
+    </div>
 
 
-                   <div class="form-group" >
-                   <label for="job">Job Title</label>
-                   <textarea class="form-control" id="jobTitle" name="jobTitle"></textarea>
-               </div>
+    <!-- Scroll Option -->
 
-                   <div class="form-group" >
-                   <label for="status">Status</label>
-                   <textarea class="form-control" id="status" name="status"></textarea>
-               </div>
+    <div class="form-group">
+      <label class="col-md-4 control-label"> Application Stage </label>
+        <div class="col-md-4 selectContainer">
+        <div class="input-group">
+            <span class="input-group-addon"></i></span>
+        <select name="stage" class="form-control selectpicker" >
+          <option value=" " > Stage </option>
+          <option> TBD </option>
+          <option> Applied </option>
+          <option> Interviewed </option>
+          <option> Offer </option>
+            <option> Archive </option>
+        </select>
+      </div>
+    </div>
+    </div>
 
-               <div class="form-group" >
-               <label for="nextStep">Next Step</label>
-               <textarea class="form-control" id="nextStep" name="nextStep"></textarea>
-           </div>
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label"> Next Action </label>
+       <div class="col-md-4 inputGroupContainer">
+        <div class="input-group">
+            <span class="input-group-addon"></span>
+      <input name="state" placeholder="Next Action" class="form-control" type="text">
+        </div>
+      </div>
+    </div>
 
-                   <button type="submit" class="btn btn-primary">Submit</button>
-           </form>
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label"> Company URL </label>
+       <div class="col-md-4 inputGroupContainer">
+        <div class="input-group">
+            <span class="input-group-addon"></span>
+      <input name="website" placeholder="Website" class="form-control" type="text">
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Text area -->
+
+    <div class="form-group">
+      <label class="col-md-4 control-label">Additional Notes</label>
+        <div class="col-md-4 inputGroupContainer">
+        <div class="input-group">
+            <span class="input-group-addon"></i></span>
+            	<textarea class="form-control" name="comment" placeholder="Additional Notes"></textarea>
+      </div>
+      </div>
+    </div>
+
+    <!-- Success message -->
+    <div class="alert alert-success" role="alert" id="success_message"> Thank you! <i class="glyphicon glyphicon-thumbs-up"></i></div>
+
+    <!-- Button -->
+    <div class="form-group">
+      <label class="col-md-4 control-label"></label>
+      <div class="col-md-4">
+        <button type="submit" class="btn btn-warning"> Submit <span class="glyphicon glyphicon-send"></span></button>
+        <button type="submit" class="btn btn-warning"> Edit <span class="glyphicon glyphicon-send"></span></button>
+      </div>
+    </div>
+
+    </fieldset>
+    </form>
 
       </div>
     </div>
 
     <div class="col-md-12 app-container">
-      {{#each application}}
-      {{#if this.user_id}}
+      {{#each Application}}
+{{#if this.UserId}}
+
 
       <tr>
         <td>{{this.date}}</td>
@@ -59,12 +146,15 @@
         <td>{{this.jobTitle}}</td>
         <td>{{this.stage}}</td>
         <td>{{this.nextAction}}</td>
+        <td>{{this.website}}</td>
+        <td>{{this.notes}}</td>
       </tr>
 
-      {{/if}}
+    {{/if}}
       {{/each}}
     </div>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script type="text/javascript" src="js/members.js"></script>
+  <script type="text/javascript" src="./js/members.js"></script>
+  <script type="text/javascript" src="./js/applications.js"></script>
