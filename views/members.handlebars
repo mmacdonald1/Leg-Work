@@ -30,18 +30,26 @@
             </div>
           </div>
         </div>
-    <!-- Text input-->
+
+    <!-- Scroll Option -->
 
     <div class="form-group">
-      <label class="col-md-4 control-label">Company Name</label>
-      <div class="col-md-4 inputGroupContainer">
-      <div class="input-group">
-      <span class="input-group-addon"> </span>
-      <input  name="company_name" placeholder="Company Name" class="form-control"  type="text">
-        </div>
+      <label class="col-md-4 control-label"> Company Name </label>
+        <div class="col-md-4 selectContainer">
+        <div class="input-group">
+            <span class="input-group-addon"></i></span>
+        <select name="company_name" class="form-control selectpicker" >
+          <option value=" " > Company Name </option>
+          {{#each Application}}
+    {{#if this.UserId}}
+          <option> {{this.companyName}} </option>
+
+          {{/if}}
+            {{/each}}
+        </select>
       </div>
     </div>
-
+    </div>
     <!-- Text input-->
 
     <div class="form-group">
@@ -54,33 +62,35 @@
       </div>
     </div>
 
-    <!-- Text input-->
-           <div class="form-group">
-      <label class="col-md-4 control-label"> Stage </label>
-        <div class="col-md-4 inputGroupContainer">
-        <div class="input-group">
-            <span class="input-group-addon"></span>
-      <input name="stage" placeholder="Stage" class="form-control"  type="text">
-        </div>
-      </div>
-    </div>
 
     <!-- Scroll Option -->
 
     <div class="form-group">
-      <label class="col-md-4 control-label"> Next Action </label>
+      <label class="col-md-4 control-label"> Application Stage </label>
         <div class="col-md-4 selectContainer">
         <div class="input-group">
             <span class="input-group-addon"></i></span>
-        <select name="state" class="form-control selectpicker" >
-          <option value=" " > Next Action </option>
-          <option> a </option>
-          <option> b </option>
-          <option> c </option>
-          <option> d </option>
+        <select name="stage" class="form-control selectpicker" >
+          <option value=" " > Stage </option>
+          <option> TBD </option>
+          <option> Applied </option>
+          <option> Interviewed </option>
+          <option> Offer </option>
+            <option> Archive </option>
         </select>
       </div>
     </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label"> Next Action </label>
+       <div class="col-md-4 inputGroupContainer">
+        <div class="input-group">
+            <span class="input-group-addon"></span>
+      <input name="state" placeholder="Next Action" class="form-control" type="text">
+        </div>
+      </div>
     </div>
 
     <!-- Text input-->
