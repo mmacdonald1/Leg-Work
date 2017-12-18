@@ -5,11 +5,9 @@ var passport = require("../config/passport");
 var isAuthenticated = require("../config/middleware/isAuthenticated.js");
 module.exports = function(app) {
     //get route for getting all the applications
-
     app.get('/members', function(req, res) {
 
     //  console.log("HELL_FUCKIN_O");
-
       var query = {};
   if (req.query.UserId) {
     query.UserId = req.query.UserId;
@@ -32,23 +30,6 @@ module.exports = function(app) {
           })
         });
       });
-//takes the data from the application form and submits it to the database
-    app.post('/fetchApps', function (req, res){
-      db.Application.create({
-        UserId: req.user.id,
-        date: req.body.date,
-        companyName: req.body.company_name,
-        jobTitle: req.body.job_posting,
-        stage: req.body.stage,
-        nextAction: req.body.state,
-        website: req.body.website,
-        notes: req.body.comment
-
-      }).then(function(){
-        res.redirect("/members");
-      });
-    });
-
 
 
 
@@ -79,19 +60,6 @@ module.exports = function(app) {
     app.get("/logout", function(req, res) {
       req.logout();
       res.redirect("/");
-    });
-    //
-    app.post("/api/compinput", function(req,res){
-        console.log(req.body);
-        db.Company.create({
-            companyName: req.body.companyName,
-            website: req.body.website,
-            culture: req.body.culture,
-            benefits: req.body.benefits,
-            notes:req.body.notes
-        }).then(function(){
-            res.redirect("/members")
-        });
     });
 
 //takes the data from the application form and submits it to the database
@@ -125,7 +93,4 @@ module.exports = function(app) {
           })
         })
 
-
     };
-
-    

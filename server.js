@@ -7,7 +7,6 @@ var methodOverride = require('method-override');
 var PORT = process.env.PORT || 8080;
 var db = require("./models");
 var app = express();
-var path = require('path')
 
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));

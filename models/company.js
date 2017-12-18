@@ -1,6 +1,9 @@
 module.exports = (sequelize, DataTypes) => {
   var Company = sequelize.define('Company', {
-   
+    UserId: {
+             type: DataTypes.INTEGER,
+             allowNull: false
+         },
     companyName : {
       type: DataTypes.STRING,
       allowNull: false,
@@ -10,14 +13,14 @@ module.exports = (sequelize, DataTypes) => {
     },
     website: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false,
       validate: {
         len: [1]
       }
     },
     culture: {
       type: DataTypes.TEXT,
-      allowNull: true,
+      allowNull: false,
       validate: {
         len: [1]
       }
@@ -32,7 +35,7 @@ module.exports = (sequelize, DataTypes) => {
   
     notes: {
       type: DataTypes.TEXT,
-      allowNull: true,
+      allowNull: false,
       validate: {
         len: [1]
       }
@@ -41,7 +44,7 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   Company.associate = function (models) {
-    models.Company.hasMany(models.Application, {
+    models.Company.belongsTo(models.User, {
       onDelete: "CASCADE",
       foreignKey: {
         allowNull: false
