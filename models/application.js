@@ -38,8 +38,22 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         len: [1]
       }
-    }
-
+    },
+    website: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
+    },
+    
+      notes: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+        validate: {
+          len: [1]
+        }
+      }
   });
 
   Application.associate = function (models) {
