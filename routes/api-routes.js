@@ -1,13 +1,13 @@
 var db = require('../models');
 var express = require('express');
-
+//var bodyParser = require('body-parser');
 var passport = require("../config/passport");
-
+var isAuthenticated = require("../config/middleware/isAuthenticated.js");
 module.exports = function(app) {
     //get route for getting all the applications
     app.get('/members', function(req, res) {
 
-      console.log("HELL_FUCKIN_O");
+    //  console.log("HELL_FUCKIN_O");
       var query = {};
   if (req.query.UserId) {
     query.UserId = req.query.UserId;
@@ -43,7 +43,7 @@ module.exports = function(app) {
 
       //if signup is filled out create user
     app.post("/api/signup", function(req, res) {
-      console.log(req.body);
+      //console.log(req.body);
       db.User.create({
         username: req.body.username,
         email: req.body.email,
@@ -51,7 +51,7 @@ module.exports = function(app) {
       }).then(function() {
         res.redirect(307, "/api/login");
       }).catch(function(err) {
-        console.log(err);
+        //console.log(err);
         res.json(err);
       });
     });
@@ -79,8 +79,18 @@ module.exports = function(app) {
       });
     });
 
+    //getting the data to send to the pie chart
+    app.get("/api/piechart", isAuthenticated, function(req, res) {
+      //console.log('yo');
+    //  console.log(query)
+      db.Application.findAll({
+        where:{UserId: req.user.id}})
+        .then(function(result) {
+      //  console.log(result,' this is our result')
+            //res.json(result);
+            res.json(result);
 
-
-
+          })
+        })
 
     };
