@@ -40,6 +40,7 @@
             <span class="input-group-addon"></i></span>
         <select name="company_name" class="form-control selectpicker" >
           <option value=" " > Company Name </option>
+          <option value=" "> N/A </option>
           {{#each Application}}
     {{#if this.UserId}}
           <option> {{this.companyName}} </option>
