@@ -42,10 +42,16 @@ module.exports = function(app) {
       db.Application.findAll({
         where:{UserId: req.user.id}})
         .then(function(result) {
-      //  console.log(result,' this is our result')
+          db.Company.findAll().then(function(data){
             res.render('members',{
-              Application: result
+              Application: result,
+              Company: data,
+              User: req.user.id
             })
+
+          })
+      //  console.log(result,' this is our result')
+
           })
         })
 
@@ -56,8 +62,26 @@ app.get("/piechart", isAuthenticated, function(req, res){
   if (req.user) {
       res.render("piechart");
 }
-})
+});
 
+app.get("/company", function(req,res){
+    var query ={};
+    if (req.query.companyName){
+        query.companyName =req.query.companyName;
+    }
+    console.log("EEEEEE")
+    db.Company.findAll({
+        where:query
+    }).then(function(dbComp){
+        // if(req.query.companyName){
+          console.log(dbComp);
+           res.render("company",{
 
+               Company: dbComp,
+
+           });
+        // }
+    });
+  });
 
 };
