@@ -42,10 +42,16 @@ module.exports = function(app) {
       db.Application.findAll({
         where:{UserId: req.user.id}})
         .then(function(result) {
-      //  console.log(result,' this is our result')
+          db.Company.findAll().then(function(data){
             res.render('members',{
-              Application: result
+              Application: result,
+              Company: data,
+              User: req.user.id
             })
+
+          })
+      //  console.log(result,' this is our result')
+
           })
         })
 
