@@ -15,7 +15,7 @@ module.exports = function(app) {
         res.redirect("/members");
       }else{
         res.render('signup');
-      } 
+      }
 //      res.render('index',{title:'Sign Up'
 //            whichPartial:function(){
 //                return "signup";
@@ -27,8 +27,9 @@ module.exports = function(app) {
     app.get("/login", function(req, res) {
       if (req.user) {
         res.redirect("/members");
-      }
+      }else{
         res.render('login');
+      }
 //      res.render('index', {title:'Log In'
 //            whichPartial:function(){
 //                return "login";
