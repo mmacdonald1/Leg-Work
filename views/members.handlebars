@@ -11,7 +11,7 @@
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <h2>Welcome <span class="member-name"></span></h2>
-
+<a href="/compinput" type= "button" class = "company">COMPANY INPUT</a><br><br>
         <h2>Add an Application</h2>
         <form class="well form-horizontal" class="makenew" action="/fetchApps" method="POST"  id="contact_form">
     <fieldset>
@@ -43,7 +43,7 @@
           <option value=" "> N/A </option>
           {{#each Company}}
 
-          <option > {{this.id}}{{this.companyName}}</option>
+          <option > {{this.id}} {{this.companyName}}</option>
 
             {{/each}}
         </select>
@@ -142,7 +142,7 @@
 
       <tr>
         <td>{{this.date}}</td>
-        <td>{{this.companyName}}</td>
+        <td><a href="/company" type= "button" class = "company">{{this.companyName}}</a></td>
         <td>{{this.jobTitle}}</td>
         <td>{{this.stage}}</td>
         <td>{{this.nextAction}}</td>
