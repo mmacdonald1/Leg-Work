@@ -20,7 +20,7 @@
     <legend> INPUT FORM </legend>
 
         <!-- Text input-->
-
+<input name="UserId" value={{User}}></input>
         <div class="form-group">
           <label class="col-md-4 control-label">Date</label>
           <div class="col-md-4 inputGroupContainer">
@@ -41,11 +41,10 @@
         <select name="company_name" class="form-control selectpicker" >
           <option value=" " > Company Name </option>
           <option value=" "> N/A </option>
-          {{#each Application}}
-    {{#if this.UserId}}
-          <option> {{this.companyName}} </option>
+          {{#each Company}}
 
-          {{/if}}
+          <option > {{this.id}}{{this.companyName}}</option>
+
             {{/each}}
         </select>
       </div>
