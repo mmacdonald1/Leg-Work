@@ -8,14 +8,22 @@ module.exports = function(sequelize, DataTypes) {
           allowNull: false
       },
 
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-      validate: {
-        isEmail: true
-      }
-    },
+      email: {
+               type: DataTypes.STRING,
+               allowNull: false,
+               unique: {
+                   msg: 'Email in the System!'
+               },
+
+               //checks for email format (foo@bar.com) via validators.js & sequelize
+               validate: {
+                   isEmail: {
+                       msg: 'The email has wrong format!'
+                   }
+
+               }
+             },
+
     password: {
       type: DataTypes.STRING,
       allowNull: false
@@ -29,18 +37,23 @@ module.exports = function(sequelize, DataTypes) {
               });
           };
 
-
           User.associate = function(models) {
-              User.hasMany(models.Contacts, {
+            User.hasMany(models.Company, {
                   onDelete: "cascade"
               });
           };
 
-          User.associate = function(models) {
-              User.hasOne(models.Profile, {
-                  onDelete: "cascade"
-              });
-          };
+          // User.associate = function(models) {
+          //     User.hasMany(models.Contacts, {
+          //         onDelete: "cascade"
+          //     });
+          // };
+
+          // User.associate = function(models) {
+          //     User.hasOne(models.Profile, {
+          //         onDelete: "cascade"
+          //     });
+          // };
 
 
 

@@ -1,5 +1,9 @@
 $(document).ready(function(){
 var appContainer = $("#app-container")
+
+$(".company").on("click", function(){
+  location.href = "../views/company.handlebars";
+})
 //this function grabs apps from the database and updates the view
 // function getApps(user){
 //   userId = user || "";
@@ -18,6 +22,9 @@ var appContainer = $("#app-container")
 // }
 
 //this route will take the form submission
+// $(".company").on("click", function(){
+//   location.href = "company.handl";
+// })
 
 
 });

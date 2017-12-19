@@ -11,7 +11,7 @@
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <h2>Welcome <span class="member-name"></span></h2>
-
+<a href="/compinput" type= "button" class = "company">COMPANY INPUT</a><br><br>
         <h2>Add an Application</h2>
         <form class="well form-horizontal" class="makenew" action="/fetchApps" method="POST"  id="contact_form">
     <fieldset>
@@ -20,7 +20,7 @@
     <legend> INPUT FORM </legend>
 
         <!-- Text input-->
-
+<input name="UserId" value={{User}}></input>
         <div class="form-group">
           <label class="col-md-4 control-label">Date</label>
           <div class="col-md-4 inputGroupContainer">
@@ -41,11 +41,10 @@
         <select name="company_name" class="form-control selectpicker" >
           <option value=" " > Company Name </option>
           <option value=" "> N/A </option>
-          {{#each Application}}
-    {{#if this.UserId}}
-          <option> {{this.companyName}} </option>
+          {{#each Company}}
 
-          {{/if}}
+          <option > {{this.id}} {{this.companyName}}</option>
+
             {{/each}}
         </select>
       </div>
@@ -143,7 +142,11 @@
 
       <tr>
         <td>{{this.date}}</td>
-        <td>{{this.companyName}}</td>
+<<<<<<< HEAD
+        <td><a href="/company" type= "button" class = "company">{{this.companyName}}</a></td>
+=======
+        <td><a href="./company" type= "button" class = "company">{{this.companyName}}</a></td>
+>>>>>>> 0ea74d28ae421acae560fa0b1fb4521a70dc76d0
         <td>{{this.jobTitle}}</td>
         <td>{{this.stage}}</td>
         <td>{{this.nextAction}}</td>
