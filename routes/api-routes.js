@@ -124,7 +124,7 @@ console.log("WE REACHED MEMBERS")
         website: req.body.compWeb,
         culture: req.body.compCulture,
         benefits: req.body.compBenefits,
-        notes: req.body.Notes,
+        notes: req.body.compNotes,
       }).then(function(){
         res.redirect("/company");
       });
