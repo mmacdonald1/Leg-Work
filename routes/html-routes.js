@@ -64,7 +64,6 @@ app.get("/piechart", isAuthenticated, function(req, res){
 }
 });
 
-
 app.get("/compinput", isAuthenticated, function(req, res){
 
   if (req.user) {
@@ -103,24 +102,24 @@ app.get("/company", function(req,res){
         })
   });
 
-app.get("/company", function(req,res){
-    var query ={};
-    if (req.query.companyName){
-        query.companyName =req.query.companyName;
-    }
-    console.log("EEEEEE")
-    db.Company.findAll({
-        where:query
-    }).then(function(dbComp){
-        if(req.company){
-          // console.log(dbComp);
-           res.render("company",{
-
-               Company: dbComp,
-
-           });
-        }
-    });
-  });
+// app.get("/company", function(req,res){
+//    var query ={};
+//    if (req.query.companyName){
+//        query.companyName =req.query.companyName;
+//    }
+//    console.log("EEEEEE")
+//    db.Company.findAll({
+//        where:query
+//    }).then(function(dbComp){
+//        if(req.company){
+//          // console.log(dbComp);
+//           res.render("company",{
+//
+//               Company: dbComp,
+//
+//           });
+//        }
+//    });
+//  });
 
 };
