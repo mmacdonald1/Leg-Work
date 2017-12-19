@@ -25,7 +25,7 @@ module.exports = function(app) {
     //if user is a signed in send to user dash else send to login
     app.get("/login", function(req, res) {
       if (req.user) {
-        res.render("members", { hello: "world"});
+        res.redirect("/members");
       }
         res.render('login');
 //      res.render('index', {title:'Log In'
@@ -58,22 +58,17 @@ module.exports = function(app) {
       //res.sendFile(path.join(__dirname, "../public/members.html"));
       //res.render("members", { hello: "world"});
 app.get("/piechart", isAuthenticated, function(req, res){
-
-  if (req.user) {
       res.render("piechart");
-}
 });
 
 app.get("/compinput", isAuthenticated, function(req, res){
-
-  if (req.user) {
       res.render("compinput",{
         UserId: req.user.id
       });
-}
+
 });
 
-app.get("/company", function(req,res){
+app.get("/company", isAuthenticated, function(req,res){
     // var query ={};
     // if (req.query.companyName){
     //     query.companyName =req.query.companyName;
