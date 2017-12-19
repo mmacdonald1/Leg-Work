@@ -11,10 +11,11 @@ var bodyParser = require('body-parser');
 module.exports = function(app) {
   //if user is signed in send to user dash if not redirect to signup
   app.get("/", function(req, res) {
-    if (req.user) {
+      if (req.user) {
         res.redirect("/members");
-      }
-      res.render('signup');
+      }else{
+        res.render('signup');
+      } 
 //      res.render('index',{title:'Sign Up'
 //            whichPartial:function(){
 //                return "signup";
