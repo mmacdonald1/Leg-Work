@@ -103,6 +103,34 @@ console.log("WE REACHED MEMBERS")
       });
     });
 
+    app.post('/fetchComps', function (req, res){
+      console.log(req.body);
+    //   const companyId = [...req.body.company_name].filter(el=>parseInt(el)? el : '').join('');
+    //   const companyName = [...req.body.company_name].filter(el => parseInt(el)? '' : el).join('');
+    //   console.log(companyId + "   " + companyName);
+    // //   { UserId: '1',
+    // date: '10/15/1994',
+    // company_name: '1askjf',
+    // job_posting: 'asdf',
+    // stage: 'TBD',
+    // state: 'asdf',
+    // website: 'asdf',
+    // comment: 'asdf' }
+
+      db.Company.create({
+
+        UserId: req.user.id,
+        companyName: req.body.compName,
+        website: req.body.compWeb,
+        culture: req.body.compCulture,
+        benefits: req.body.compBenefits,
+        notes: req.body.Notes,
+      }).then(function(){
+        res.redirect("/company");
+      });
+    });
+
+
     //getting the data to send to the pie chart
     app.get("/api/piechart", isAuthenticated, function(req, res) {
       //console.log('yo');

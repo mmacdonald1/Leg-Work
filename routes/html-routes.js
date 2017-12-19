@@ -62,7 +62,46 @@ app.get("/piechart", isAuthenticated, function(req, res){
   if (req.user) {
       res.render("piechart");
 }
-})
+});
+
+
+app.get("/compinput", isAuthenticated, function(req, res){
+
+  if (req.user) {
+      res.render("compinput",{
+        UserId: req.user.id
+      });
+}
+});
+
+app.get("/company", function(req,res){
+    // var query ={};
+    // if (req.query.companyName){
+    //     query.companyName =req.query.companyName;
+    // }
+    // console.log("EEEEEE")
+    // db.Company.findAll(
+    //
+    // ).then(function(dbComp){
+    //     if(req.company){
+    //       // console.log(dbComp);
+    //        res.render("company",{
+    //
+    //            Company: dbComp,
+    //
+    //        });
+    //     }
+    // });
+
+        db.Company.findAll({where:{UserId: req.user.id}}).then(function(data){
+          res.render('company',{
+
+            Company: data,
+            User: req.user.id
+          })
+
+        })
+  });
 
 
 
