@@ -22,6 +22,9 @@ $(".company").on("click", function(){
 // }
 
 //this route will take the form submission
+// $(".company").on("click", function(){
+//   location.href = "company.handl";
+// })
 
 
 });
