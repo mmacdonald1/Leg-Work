@@ -142,15 +142,21 @@
 {{#if this.UserId}}
 
 
-      <tr>
-        <td>{{this.date}}</td>
-        <td><a href="/company" type= "button" class = "company">{{this.companyName}}</a></td>
-        <td>{{this.jobTitle}}</td>
-        <td>{{this.stage}}</td>
-        <td>{{this.nextAction}}</td>
-        <td>{{this.website}}</td>
-        <td>{{this.notes}}</td>
-      </tr>
+      <h3>Date</h3><br>
+        {{this.date}}<br>
+        <h3>Company Name</h3><br>
+        <a href="/company" type= "button" class = "company">{{this.companyName}}</a><br>
+        <h3>Job Title</h3><br>
+        {{this.jobTitle}}<br>
+        <h3>Stage</h3><br>
+        {{this.stage}}<br>
+        <h3>Next Action</h3><br>
+        {{this.nextAction}}<br>
+        <h3>Website</h3><br>
+        {{this.website}}<br>
+        <h3>Notes</h3><br>
+        {{this.notes}}<br>
+
 
     {{/if}}
       {{/each}}
