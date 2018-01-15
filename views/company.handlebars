@@ -4,15 +4,31 @@
     </div>
   </div>
 </nav>
+
+<table class="table table-dark">
+  <thead>
+<tr>
+<th scope="col">Company Name</th>
+<th scope="col">Company Website</th>
+<th scope="col">Company Culture</th>
+<th scope="col">Benefits</th>
+<th scope="col">Notes</th>
+
+</tr>
+</thead>
 {{#each Company}}
-<h3>Company Name</h3><br>
-{{this.companyName}}<br>
-<h3>Website</h3>
-{{this.website}}<br>
-<h3>Culture</h3>
-{{this.culture}}<br>
-<h3>Benefits</h3>
-{{this.benefits}}<br>
-<h3>Notes</h3>
-{{this.notes}}<br>
-{{/each}}
+
+<tbody>
+    <tr>
+      <th scope="row"></th>
+      <td>{{this.companyName}}</td>
+      <td>{{this.website}}</td>
+      <td>{{this.culture}}</td>
+      <td>{{this.benefits}}</td>
+      <td>{{this.notes}}</td>
+
+    </tr>
+  </tbody>
+
+        {{/each}}
+</table>

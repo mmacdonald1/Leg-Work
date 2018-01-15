@@ -4,10 +4,12 @@
     "password": null,
     "database": "hustler_development",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+       "operatorsAliases": false
   },
   "production": {
     "use_env_variable":"JawsDB_URL",
-    "dialect": "mysql"
+    "dialect": "mysql",
+     "operatorsAliases": false
   }
 }
