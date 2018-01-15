@@ -151,28 +151,25 @@
       </tr>
       </thead>
       {{#each Application}}
-{{#if this.UserId}}
+          {{#if this.UserId}}
 
 
-<tbody>
-<tr>
-<th scope="row">{{this.date}}</th>
-<td><a href="/company" type= "button" class = "company">{{this.companyName}}</a></td>
-<td>{{this.jobTitle}}</td>
-<td>{{this.stage}}</td>
-<td>{{this.nextAction}}</td>
-<td>{{this.website}}</td>
-<td>{{this.notes}}</td>
-</tr>
-</tbody>
-
-
-
+          <tbody>
+          <tr>
+          <th scope="row">{{this.date}}</th>
+          <td><a href="/company" type= "button" class = "company">{{this.companyName}}</a></td>
+          <td>{{this.jobTitle}}</td>
+          <td>{{this.stage}}</td>
+          <td>{{this.nextAction}}</td>
+          <td>{{this.website}}</td>
+          <td>{{this.notes}}</td>
+          </tr>
+          </tbody>
 
 
     {{/if}}
       {{/each}}
-      
+
       </table>
     </div>
   </div>
