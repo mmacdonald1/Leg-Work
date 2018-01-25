@@ -64,21 +64,7 @@ h2{
     .btn:hover{
         background-color: #4CA394;
     }
-.input-btn{
-  background-color: #32463b;
-  color: #fff;
-  font-weight: 600;
-  line-height: 2.5;
-  text-align: center;
-  height: 2.5em;
-  width: 20%;
-  display: block;
-  border:none;
-  font-size: 0.75em;
-}
-  .input-btn:hover{
-      background-color: #39815d;
-  }
+
 /*====== Members Page ==========*/
 nav{
     background-color: #333333;
@@ -145,4 +131,26 @@ nav ul li ul li a{
   justify-content: space-around;
 }
 .minititle{
+  margin-bottom: 0;
 }
+.minip{
+  margin-bottom: 0;
+}
+a.input-btn{
+  background-color: #32463b;
+  color: #fff;
+  font-weight: 600;
+  line-height: 2.5;
+  text-align: center;
+  height: 2.5em;
+  width: 20%;
+  display: block;
+  border:none;
+  font-size: 0.75em;
+  -webkit-appearance: none;
+   border-radius: 5px;
+}
+  a.input-btn:hover{
+      background-color: #39815d;
+      -webkit-appearance: none;
+  }
