@@ -24,14 +24,19 @@ body, html{
     color:#222222;
     font-size:16px;
 }
+html [type=button]{
+  -webkit-appearance: none;
+}
 a{
     font-weight:600;
     color: #9bbe69;
     text-decoration:none;
+    -webkit-appearance: none;
 }
   a:hover{
     color: #39815d;
     text-decoration: none;
+    -webkit-appearance: none;
   }
 p{
     font-size:1em;
@@ -129,6 +134,26 @@ nav ul li ul li a{
   display:flex;
   justify-content: center;
 }
+/*====== Signup Page ==========*/
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+  
+  #video-background {
+  /*  making the video fullscreen  */
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    opacity: 0.4;
+    filter: alpha(opacity=40); /* msie */
+    background-color: #000;
+  }
 
 /*====== Members Page ==========*/
 
@@ -156,7 +181,7 @@ a.input-btn{
   width: 20%;
   display: block;
   border:none;
-  font-size: 0.75em;
+  font-size: 1em;
   -webkit-appearance: none;
    border-radius: 5px;
 }
@@ -171,9 +196,7 @@ a.input-btn{
 .application-form{
   background-color: #333333;
   opacity: 0.9;
-  margin-bottom:40px;
   padding:30px;
-  border-radius: 5px;
   display: flex;
   justify-content: center;
 }
@@ -204,7 +227,7 @@ fieldset{
   padding-left: 5px;
 }
 .selectContainer{
-  padding-left: 30px;
+  padding-left: 15px;
 }
 .control-label{
   margin-left: 15px;
@@ -215,12 +238,20 @@ fieldset{
 }
 .app-container{
   padding: 0;
+  background-color: #D3D3D3;
 }
 .table{
-  width:90%;
+  width:100%;
 }
 .apps{
   color: #333333;
   text-align: center;
   margin: 30px;
 }
+a.company.tablecomp{
+  color: #c8ded6;
+  -webkit-appearance: none;
+}
+  .tablecomp:hover{
+    color: #fff;
+  }
