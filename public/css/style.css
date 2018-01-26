@@ -29,7 +29,7 @@ html [type=button]{
 }
 a{
     font-weight:600;
-    color: #9bbe69;
+    color: #c8ded6;
     text-decoration:none;
     -webkit-appearance: none;
 }
@@ -64,6 +64,7 @@ h2{
     width: 30%;
     display: block;
     border:none;
+    font-size: 1em;
 }
     .btn:hover{
         background-color: #4CA394;
@@ -139,7 +140,7 @@ nav ul li ul li a{
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
-  
+
   #video-background {
   /*  making the video fullscreen  */
     position: fixed;
@@ -154,7 +155,54 @@ nav ul li ul li a{
     filter: alpha(opacity=40); /* msie */
     background-color: #000;
   }
-
+  .signupWrapper{
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   border: 10px solid rgba(255, 255, 255, 0.5);
+   margin: 10px;
+  }
+  .landingTitle{
+    margin:30px;
+    text-align: center;
+  }
+  .container{
+    background-color: rgba(51, 51, 51, 0.8);
+    padding:15px;
+    border-radius: 5px;
+    width: 60%;
+  }
+  .signup{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+ .signupLabels{
+   color:#fff;
+   font-weight: 600;
+   display: flex;
+   justify-content: center;
+   font-size: 1em;
+ }
+ .btn-div{
+   display: flex;
+   justify-content: center;
+}
+.landingh1{
+  font-size: 4em;
+  color:#333333;
+}
+.landingh2{
+  font-size: 1.3em;
+  color:#333333;
+  margin: 15px;
+}
+.register{
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
 /*====== Members Page ==========*/
 
 .mininav{

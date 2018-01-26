@@ -1,29 +1,33 @@
 
   <!-- //SIGN UP -->
-<h1> LEG WORK </h1>
-<h2> Job Hunting is Hard. We'll Help You Do the Leg Work. </h2>
+<div class ="signupWrapper">
+<div class = "landingTitle">
+<h1 class="landingh1"> LEG WORK </h1>
+<h2 class="landingh2" > Job Hunting is Hard. We'll Help You Do the Leg Work. </h2>
+</div>
       <div class="loginBox" id="loginBox">
         <div class="container">
         <form class="signup">
           <div class="form-group">
-          <label for="exampleInputUsername">Username</label>
+          <label class="signupLabels" for="exampleInputUsername">Username:</label>
              <input type="username" class="form-control" id= "username-input" placeholder="username">
            </div>
           <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
+            <label class="signupLabels" for="exampleInputEmail1">Email address:</label>
             <input type="email" class="form-control" id="email-input" placeholder="Email">
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
+            <label class="signupLabels" for="exampleInputPassword1">Password:</label>
             <input type="password" class="form-control" id="password-input" placeholder="Password">
           </div>
           <div style="display: none" id="alert" class="alert alert-danger" role="alert">
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
             <span class="sr-only">Error:</span> <span class="msg"></span>
           </div>
+          <div class="btn-div">
           <button type="submit" class="btn btn-secondary">Sign Up</button>
-        <hr>
-        <p> Already Registered? Login <a href="/login"> Here</a></p>
+        </div>
+        <p class ="signupLabels register"> Already Registered? Login  <a href="/login"> Here</a></p>
       </form>
       </div>
     </div>
