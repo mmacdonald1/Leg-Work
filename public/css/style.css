@@ -123,8 +123,11 @@ nav ul li ul li a{
     color:#eeeeee;
   }
 
-.container{
-  margin-top: 30px;
+.wrapper{
+  margin:0;
+  padding:0;
+  display:flex;
+  justify-content: center;
 }
 
 /*====== Members Page ==========*/
@@ -144,7 +147,7 @@ nav ul li ul li a{
   font-weight: 600;
 }
 a.input-btn{
-  background-color: #444444;
+  background-color: #32463b;
   color: #fff;
   font-weight: 600;
   line-height: 2.5;
@@ -164,6 +167,7 @@ a.input-btn{
 .hidden{
   display:none;
 }
+
 .application-form{
   background-color: #333333;
   opacity: 0.9;
@@ -208,4 +212,15 @@ fieldset{
 .app-btn{
   margin-left: 15px;
   width:40%;
+}
+.app-container{
+  padding: 0;
+}
+.table{
+  width:90%;
+}
+.apps{
+  color: #333333;
+  text-align: center;
+  margin: 30px;
 }
