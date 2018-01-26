@@ -26,121 +26,120 @@
 
    <div class="container">
     <div class="row">
-      <div class="col-lg-12">
-        <h2>Add an Application</h2>
+      <div class="col-lg-12 application-form">
         <form class="well form-horizontal" class="makenew" action="/fetchApps" method="POST"  id="contact_form">
-    <fieldset>
+            <fieldset>
 
-    <!-- Form Name -->
-    <legend> INPUT FORM </legend>
+            <!-- Form Name -->
+            <h2 class="apptitle"> Add an Application </h2>
 
-        <!-- Text input-->
-<input name="UserId" class="hidden" value={{User}}></input>
-        <div class="form-group">
-          <label class="col-md-4 control-label">Date</label>
-          <div class="col-md-4 inputGroupContainer">
-          <div class="input-group">
-          <span class="input-group-addon"> </span>
-          <input  name="date" placeholder="date" class="form-control"  type="text">
+                <!-- Text input-->
+        <input name="UserId" class="hidden" value={{User}}></input>
+                <div class="form-group">
+                  <label class="col-md-12 control-label">Date:</label>
+                  <div class="col-md-12 inputGroupContainer">
+                  <div class="input-group">
+                  <span class="input-group-addon"> </span>
+                  <input  name="date" placeholder="date" class="form-control"  type="text">
+                    </div>
+                  </div>
+                </div>
+
+            <!-- Scroll Option -->
+
+            <div class="form-group">
+              <label class="col-md-12 control-label"> Company Name: </label>
+                <div class="col-md-12 selectContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"></i></span>
+                <select name="company_name" class="form-control selectpicker" >
+                  <option value=" " > Company Name </option>
+                  <option value=" "> N/A </option>
+                  {{#each Company}}
+
+                  <option > {{this.id}} {{this.companyName}}</option>
+
+                    {{/each}}
+                </select>
+              </div>
             </div>
-          </div>
-        </div>
+            </div>
+            <!-- Text input-->
 
-    <!-- Scroll Option -->
-
-    <div class="form-group">
-      <label class="col-md-4 control-label"> Company Name </label>
-        <div class="col-md-4 selectContainer">
-        <div class="input-group">
-            <span class="input-group-addon"></i></span>
-        <select name="company_name" class="form-control selectpicker" >
-          <option value=" " > Company Name </option>
-          <option value=" "> N/A </option>
-          {{#each Company}}
-
-          <option > {{this.id}} {{this.companyName}}</option>
-
-            {{/each}}
-        </select>
-      </div>
-    </div>
-    </div>
-    <!-- Text input-->
-
-    <div class="form-group">
-      <label class="col-md-4 control-label"> Job Posting</label>
-        <div class="col-md-4 inputGroupContainer">
-        <div class="input-group">
-      <span class="input-group-addon"></span>
-      <input name="job_posting" placeholder="Job Posting" class="form-control"  type="text">
-        </div>
-      </div>
-    </div>
+            <div class="form-group">
+              <label class="col-md-12 control-label"> Job Posting:</label>
+                <div class="col-md-12 inputGroupContainer">
+                <div class="input-group">
+              <span class="input-group-addon"></span>
+              <input name="job_posting" placeholder="Job Posting" class="form-control"  type="text">
+                </div>
+              </div>
+            </div>
 
 
-    <!-- Scroll Option -->
+            <!-- Scroll Option -->
 
-    <div class="form-group">
-      <label class="col-md-4 control-label"> Application Stage </label>
-        <div class="col-md-4 selectContainer">
-        <div class="input-group">
-            <span class="input-group-addon"></i></span>
-        <select name="stage" class="form-control selectpicker" >
-          <option value=" " > Stage </option>
-          <option> TBD </option>
-          <option> Applied </option>
-          <option> Interviewed </option>
-          <option> Offer </option>
-            <option> Archive </option>
-        </select>
-      </div>
-    </div>
-    </div>
+            <div class="form-group">
+              <label class="col-md-12 control-label"> Application Stage: </label>
+                <div class="col-md-12 selectContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"></i></span>
+                <select name="stage" class="form-control selectpicker" >
+                  <option value=" " > Stage </option>
+                  <option> TBD </option>
+                  <option> Applied </option>
+                  <option> Interviewed </option>
+                  <option> Offer </option>
+                    <option> Archive </option>
+                </select>
+              </div>
+            </div>
+            </div>
 
-    <!-- Text input-->
-    <div class="form-group">
-      <label class="col-md-4 control-label"> Next Action </label>
-       <div class="col-md-4 inputGroupContainer">
-        <div class="input-group">
-            <span class="input-group-addon"></span>
-      <input name="state" placeholder="Next Action" class="form-control" type="text">
-        </div>
-      </div>
-    </div>
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-12 control-label"> Next Action: </label>
+               <div class="col-md-12 inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"></span>
+              <input name="state" placeholder="Next Action" class="form-control" type="text">
+                </div>
+              </div>
+            </div>
 
-    <!-- Text input-->
-    <div class="form-group">
-      <label class="col-md-4 control-label"> Company URL </label>
-       <div class="col-md-4 inputGroupContainer">
-        <div class="input-group">
-            <span class="input-group-addon"></span>
-      <input name="website" placeholder="Website" class="form-control" type="text">
-        </div>
-      </div>
-    </div>
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-12 control-label"> Company URL: </label>
+               <div class="col-md-12 inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"></span>
+              <input name="website" placeholder="Website" class="form-control" type="text">
+                </div>
+              </div>
+            </div>
 
 
-    <!-- Text area -->
+            <!-- Text area -->
 
-    <div class="form-group">
-      <label class="col-md-4 control-label">Additional Notes</label>
-        <div class="col-md-4 inputGroupContainer">
-        <div class="input-group">
-            <span class="input-group-addon"></i></span>
-            	<textarea class="form-control" name="comment" placeholder="Additional Notes"></textarea>
-      </div>
-      </div>
-    </div>
+            <div class="form-group">
+              <label class="col-md-12 control-label">Additional Notes:</label>
+                <div class="col-md-12 inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"></i></span>
+                    	<textarea class="form-control" name="comment" placeholder="Additional Notes"></textarea>
+              </div>
+              </div>
+            </div>
 
-    <!-- Button -->
-    <div class="form-group">
-      <label class="col-md-4 control-label"></label>
-      <div class="col-md-4">
-        <button type="submit" class="btn btn-warning"> Submit <span class="glyphicon glyphicon-send"></span></button>
-      </div>
-    </div>
+            <!-- Button -->
+            <div class="form-group">
+              <label class="col-md-12 control-label"></label>
+              <div class="col-md-12">
+                <button type="submit" class="btn app-btn"> Submit <span class="glyphicon glyphicon-send"></span></button>
+              </div>
+            </div>
 
-    </fieldset>
+            </fieldset>
     </form>
 
       </div>

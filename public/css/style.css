@@ -41,11 +41,11 @@ h1, h2, h3, h4{
   font-family:'Montserrat', sans-serif;
 }
 h1{
-   font-size:1.4em;
+   font-size:2em;
    font-weight: 700;
 }
 h2{
-    font-size:1.2em;
+    font-size:1.5em;
     font-weight: 700;
 }
 .btn{
@@ -65,7 +65,7 @@ h2{
         background-color: #4CA394;
     }
 
-/*====== Members Page ==========*/
+/*====== Navbar and Containers ==========*/
 nav{
     background-color: #333333;
     align-items: left;
@@ -124,6 +124,12 @@ nav ul li ul li a{
     color:#eeeeee;
   }
 
+.container{
+  margin-top: 30px;
+}
+
+/*====== Members Page ==========*/
+
 .mininav{
   background-color: #c8ded6;
   padding: 20px;
@@ -132,12 +138,14 @@ nav ul li ul li a{
 }
 .minititle{
   margin-bottom: 0;
+  font-size: 1.5em;
 }
 .minip{
   margin-bottom: 0;
+  font-weight: 600;
 }
 a.input-btn{
-  background-color: #32463b;
+  background-color: #444444;
   color: #fff;
   font-weight: 600;
   line-height: 2.5;
@@ -151,6 +159,54 @@ a.input-btn{
    border-radius: 5px;
 }
   a.input-btn:hover{
-      background-color: #39815d;
+      background-color: #32463b;
       -webkit-appearance: none;
   }
+.hidden{
+  display:none;
+}
+.application-form{
+  background-color: #333333;
+  opacity: 0.9;
+  margin-bottom:40px;
+  padding:30px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+.form-horizontal{
+  width: 100%;
+  color: #DCDCDC;
+  display: flex;
+  justify-content: center;
+}
+fieldset{
+  width:100%;
+  display: flex;
+  justify-content: center;
+}
+.apptitle{
+  color:#fff;
+  text-align: center;
+  border-bottom: 1px solid #808080;
+  padding-bottom: 25px;
+}
+.inputGroupContainer{
+  margin-left:15px;
+  padding-right: 30px;
+}
+.selectpicker{
+  width: 100%;
+  padding-left: 5px;
+}
+.selectContainer{
+  padding-left: 30px;
+}
+.control-label{
+  margin-left: 15px;
+}
+.app-btn{
+  margin-left: 15px;
+  width:40%;
+}
