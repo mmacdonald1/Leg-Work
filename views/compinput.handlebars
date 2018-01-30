@@ -3,47 +3,60 @@
    <div class="row" id="nav-container">
             <ul class="col-lg-12" id ="menu-items">
                 <div class = "title">
+
                   <li><a class="nav-items" href="/">LEG WORK</a></li>
                 </div>
-                <div class = "logout">
+                <div class = "menu-items">
+                  <li><a class="nav-link" href="/members">Profile</a></li>
+                  <li><a class="nav-link" href="/company">Companies</a></li>
+                  <li><a class="nav-link" href="/piechart">Analytics</a></li>
                   <li><a class="nav-link" href="/logout">Logout</a></li>
                 </div>
             </ul>
     </div>
   </nav>
 
+  <div class="row">
+    <div class="mininav col-lg-12">
+      <h2 class="minititle">Hello!</h2>
+      <p class ="minip">After you submit your company you can see it on the companies page.</p>
+      <a type="button" href="/company" class = "input-btn">Go to Companies Page </a>
+    </div>
+  </div>
 
-<div class="container">
+
+<div class="compcont container">
    <div class="row">
-     <div class="col-md-6 col-md-offset-3">
-       <h2>Company Form</h2>
+     <div class="col-lg-12 companyinput">
+       <h2 class= "apptitle compinptitle" >Company Form</h2>
        <form class="compInput" class="makenew" action="/fetchComps" method="POST"  id="comp_form">
          <div class="form-group">
-           <label for="exampleCompName">Company Name</label>
+           <label class="complabel" for="exampleCompName">Company Name:</label>
            <input type="comp-name" class="form-control" name="compName" placeholder="Company Name">
          </div>
          <div class="form-group">
-           <label for="exampleCompWebsite">Website</label>
+           <label class="complabel" for="exampleCompWebsite">Website:</label>
            <input type="comp-website" class="form-control" name="compWeb" placeholder="Company Website URL">
          </div>
          <div>
-         <label for="exampleCompCulture">Culture</label>
+         <label class="complabel" for="exampleCompCulture">Culture:</label>
            <input type="comp-culture" class="form-control" name="compCulture" placeholder="Company Culture">
          </div>
          <div>
-         <label for="exampleCompBenefits">Benefits</label>
+         <label class="complabel" for="exampleCompBenefits">Benefits:</label>
            <input type="comp-benefits" class="form-control" name="compBenefits" placeholder="Company Benefits">
          </div>
          <div>
-            <label for="exampleCompNotes">Notes</label>
+            <label class="complabel" for="exampleCompNotes">Notes:</label>
              <input type="message" class="form-control" name="compNotes" placeholder="Your notes here."></input>
          </div>
          <br>
-         <br>
+         <div class="btn-div">
          <button type="submit" class="btn btn-default">Submit</button>
+         </div>
        </form>
        <br />
-       <p>Or return to Applications table here <a href="/members">here</a></p>
+       <p class="register">Or return to Applications table <a href="/members">here</a></p>
      </div>
    </div>
  </div>

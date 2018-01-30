@@ -1,30 +1,29 @@
 
-<article>
 <!-- //Login -->
   <div class="wrapper">
-  <section id="main-content">
-  <center>
-  <div class="loginBox" id="loginBox">
-    <div class="container">
+
+
+  <div class="loginBox signupWrapper" id="loginBox">
+    <div class="container logincont">
         <form class="login" action="/" method="POST">
           <div class="form-group">
-            <label for="exampleInputEmail1">Email Address</label>
+            <label class ="signupLabels" for="exampleInputEmail1">Email Address</label>
             <input type="email" class="form-control" id="email-input" placeholder="Email">
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
+            <label class ="signupLabels" for="exampleInputPassword1">Password</label>
             <input type="password" class="form-control" id="password-input" placeholder="Password">
           </div>
+          <div class = "btn-div">
           <button type="submit" class="btn btn-secondary">Login</button>
-          <br>
-  </center>
-  <hr>
-          <p><a href="/"> Forgot Your Username/Password </a> || Sign Up <a href="/">Here</a></p>
+        </div>
+
+          <p class="register" ><a href="/"> Forgot Your Username/Password </a> || Sign Up <a href="/">Here</a></p>
         </form>
     </div>
   </div>
-</section>
-</article>
+</div>
+
 <!-- //Video -->
 <video autoplay loop id="video-background" muted plays-inline>
   <source src="./assets/images/extradiv.mov">
