@@ -1,41 +1,38 @@
 
-<body class="signUp">
-  <div class="splash fade-in">
-    <h1 class="splash-title fade-in"> job hunting is tough. we'll help you do the <font color="black"><strong><font size="+5"><u> LEG WORK </u></font></strong></font></h1>
-    <a href="#" class="splash-arrow fade-in"><img src="./assets/images/down-arrow.png" alt=""/></a>
-  </div>
-<article>
   <!-- //SIGN UP -->
-<h2 class="bottom"> organize your <font color="black"><strong><font size="+5"><u>APPLICATIONS</u></font></strong></font>. track your <font color="black"><strong><font size="+5"><u> EFFORTS</u></font></strong></font>. sort your <font color="black"><strong><font size="+5"><u> RESOURCES</u></font></strong></font>. </h2>
-<div class="wrapper">
-  <center>
+<div class ="signupWrapper">
+<div class = "landingTitle">
+    <h1 class="landingh1"> LEG WORK </h1>
+    <h2 class="landingh2" > Job Hunting is Hard. We'll Help You Do the Leg Work. </h2>
+</div>
       <div class="loginBox" id="loginBox">
         <div class="container">
         <form class="signup">
           <div class="form-group">
-          <label for="exampleInputUsername">Username</label>
+          <label class="signupLabels" for="exampleInputUsername">Username:</label>
              <input type="username" class="form-control" id= "username-input" placeholder="username">
            </div>
           <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
+            <label class="signupLabels" for="exampleInputEmail1">Email address:</label>
             <input type="email" class="form-control" id="email-input" placeholder="Email">
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
+            <label class="signupLabels" for="exampleInputPassword1">Password:</label>
             <input type="password" class="form-control" id="password-input" placeholder="Password">
           </div>
           <div style="display: none" id="alert" class="alert alert-danger" role="alert">
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
             <span class="sr-only">Error:</span> <span class="msg"></span>
           </div>
+          <div class="btn-div">
           <button type="submit" class="btn btn-secondary">Sign Up</button>
-        <hr>
-        <p> Already Registered? Login <a href="/login"> Here</a></p>
+        </div>
+        <p class ="register"> Already Registered? Login  <a href="/login"> Here</a></p>
       </form>
       </div>
     </div>
   </div>
-</article>
+
 <!-- //Video -->
 <video autoplay loop id="video-background" muted plays-inline>
   <source src="./assets/images/login.mov">

@@ -1,175 +1,188 @@
-  <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/logout">
-        Logout
-      </a>
+
+<nav>
+   <div class="row" id="nav-container">
+            <ul class="nav col-lg-12" id ="menu-items">
+                <div class = "title">
+
+                  <li><a class="nav-items" href="/">LEG WORK</a></li>
+                </div>
+                <div class = "menu-items">
+                  <li><a class="nav-link" href="/members">Profile</a></li>
+                  <li><a class="nav-link" href="/company">Companies</a></li>
+                  <li><a class="nav-link" href="/piechart">Analytics</a></li>
+                  <li><a class="nav-link" href="/logout">Logout</a></li>
+                </div>
+            </ul>
+    </div>
+  </nav>
+
+  <div class="row">
+    <div class="mininav col-lg-12">
+      <h2 class="minititle">Welcome!</h2>
+      <p class ="minip">First time? Start by inputing a Company you are interested in.</p>
+      <a type="button" href="/compinput" class = "input-btn">Add a Company </a>
     </div>
   </div>
-</nav>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h2>Welcome <span class="member-name"></span></h2>
-<a href="/compinput" type= "button" class = "company">Input A Company </a><br><br>
 
-<a href="/piechart" type= "button" class = "company">LOOK AT MY PIECHART </a><br><br>
-        <h2>Add an Application</h2>
+  <h1 class="title apps"> My Job Applications </h1>
+  <!-- <button class= "addbtn" onclick= "addBtn()" >Hide Application Form</button> -->
+
+   <div class="wrapper">
+    <div class="row appsrow">
+      <div class="col-md-4 application-form">
         <form class="well form-horizontal" class="makenew" action="/fetchApps" method="POST"  id="contact_form">
-    <fieldset>
+            <fieldset>
 
-    <!-- Form Name -->
-    <legend> INPUT FORM </legend>
+            <!-- Form Name -->
+            <h2 class="apptitle">Add an Application</h2>
 
-        <!-- Text input-->
-<input name="UserId" class="hidden" value={{User}}></input>
-        <div class="form-group">
-          <label class="col-md-4 control-label">Date</label>
-          <div class="col-md-4 inputGroupContainer">
-          <div class="input-group">
-          <span class="input-group-addon"> </span>
-          <input  name="date" placeholder="date" class="form-control"  type="text">
+                <!-- Text input-->
+        <input name="UserId" class="hidden" value={{User}}></input>
+                <div class="form-group">
+                  <label class="control-label">Date:</label>
+                  <div class="inputGroupContainer">
+                  <div class="input-group">
+                  <span class="input-group-addon"> </span>
+                  <input  name="date" placeholder="date" class="form-control"  type="text">
+                    </div>
+                  </div>
+                </div>
+
+            <!-- Scroll Option -->
+
+            <div class="form-group">
+              <label class="control-label"> Company Name: </label>
+                <div class="selectContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"></i></span>
+                <select name="company_name" class="form-control selectpicker" >
+                  <option value=" " > Company Name </option>
+                  <option value=" "> N/A </option>
+                  {{#each Company}}
+
+                  <option > {{this.id}} {{this.companyName}}</option>
+
+                    {{/each}}
+                </select>
+              </div>
             </div>
-          </div>
-        </div>
+            </div>
+            <!-- Text input-->
 
-    <!-- Scroll Option -->
-
-    <div class="form-group">
-      <label class="col-md-4 control-label"> Company Name </label>
-        <div class="col-md-4 selectContainer">
-        <div class="input-group">
-            <span class="input-group-addon"></i></span>
-        <select name="company_name" class="form-control selectpicker" >
-          <option value=" " > Company Name </option>
-          <option value=" "> N/A </option>
-          {{#each Company}}
-
-          <option > {{this.id}} {{this.companyName}}</option>
-
-            {{/each}}
-        </select>
-      </div>
-    </div>
-    </div>
-    <!-- Text input-->
-
-    <div class="form-group">
-      <label class="col-md-4 control-label"> Job Posting</label>
-        <div class="col-md-4 inputGroupContainer">
-        <div class="input-group">
-      <span class="input-group-addon"></span>
-      <input name="job_posting" placeholder="Job Posting" class="form-control"  type="text">
-        </div>
-      </div>
-    </div>
+            <div class="form-group">
+              <label class="control-label"> Job Posting:</label>
+                <div class="inputGroupContainer">
+                <div class="input-group">
+              <span class="input-group-addon"></span>
+              <input name="job_posting" placeholder="Job Posting" class="form-control"  type="text">
+                </div>
+              </div>
+            </div>
 
 
-    <!-- Scroll Option -->
+            <!-- Scroll Option -->
 
-    <div class="form-group">
-      <label class="col-md-4 control-label"> Application Stage </label>
-        <div class="col-md-4 selectContainer">
-        <div class="input-group">
-            <span class="input-group-addon"></i></span>
-        <select name="stage" class="form-control selectpicker" >
-          <option value=" " > Stage </option>
-          <option> TBD </option>
-          <option> Applied </option>
-          <option> Interviewed </option>
-          <option> Offer </option>
-            <option> Archive </option>
-        </select>
-      </div>
-    </div>
-    </div>
+            <div class="form-group">
+              <label class="control-label"> Application Stage: </label>
+                <div class="selectContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"></i></span>
+                <select name="stage" class="form-control selectpicker" >
+                  <option value=" " > Stage </option>
+                  <option> TBD </option>
+                  <option> Applied </option>
+                  <option> Interviewed </option>
+                  <option> Offer </option>
+                    <option> Archive </option>
+                </select>
+              </div>
+            </div>
+            </div>
 
-    <!-- Text input-->
-    <div class="form-group">
-      <label class="col-md-4 control-label"> Next Action </label>
-       <div class="col-md-4 inputGroupContainer">
-        <div class="input-group">
-            <span class="input-group-addon"></span>
-      <input name="state" placeholder="Next Action" class="form-control" type="text">
-        </div>
-      </div>
-    </div>
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="control-label"> Next Action: </label>
+               <div class="inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"></span>
+              <input name="state" placeholder="Next Action" class="form-control" type="text">
+                </div>
+              </div>
+            </div>
 
-    <!-- Text input-->
-    <div class="form-group">
-      <label class="col-md-4 control-label"> Company URL </label>
-       <div class="col-md-4 inputGroupContainer">
-        <div class="input-group">
-            <span class="input-group-addon"></span>
-      <input name="website" placeholder="Website" class="form-control" type="text">
-        </div>
-      </div>
-    </div>
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="control-label"> Company URL: </label>
+               <div class="inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"></span>
+              <input name="website" placeholder="Website" class="form-control" type="text">
+                </div>
+              </div>
+            </div>
 
 
-    <!-- Text area -->
+            <!-- Text area -->
 
-    <div class="form-group">
-      <label class="col-md-4 control-label">Additional Notes</label>
-        <div class="col-md-4 inputGroupContainer">
-        <div class="input-group">
-            <span class="input-group-addon"></i></span>
-            	<textarea class="form-control" name="comment" placeholder="Additional Notes"></textarea>
-      </div>
-      </div>
-    </div>
+            <div class="form-group">
+              <label class="control-label">Additional Notes:</label>
+                <div class="inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"></i></span>
+                    	<textarea class="form-control" name="comment" placeholder="Additional Notes"></textarea>
+              </div>
+              </div>
+            </div>
 
-    <!-- Success message -->
-    <div class="alert alert-success" role="alert" id="success_message"> Thank you! <i class="glyphicon glyphicon-thumbs-up"></i></div>
-<br>
-    <!-- Button -->
-    <div class="form-group">
-      <label class="col-md-4 control-label"></label>
-      <div class="col-md-4">
-        <button type="submit" class="btn btn-warning"> Submit <span class="glyphicon glyphicon-send"></span></button>
-        <button type="submit" class="btn btn-warning"> Edit <span class="glyphicon glyphicon-send"></span></button>
-      </div>
-    </div>
+            <!-- Button -->
+            <div class="form-group">
+              <label class="control-label"></label>
+              <div class="appbutton btn-div">
+                <button type="submit" class="btn app-btn"> Submit <span class="glyphicon glyphicon-send"></span></button>
+              </div>
+            </div>
 
-    </fieldset>
+            </fieldset>
     </form>
 
       </div>
-    </div>
-
-    <div class="col-md-12 app-container">
 
 
+    <div class="col-md-8 app-container">
       <table class="table table-dark">
-            <thead>
-            <tr>
-            <th scope="col">Date</th>
-            <th scope="col">Company Name</th>
-            <th scope="col">Job Title</th>
-            <th scope="col">Stage</th>
-            <th scope="col">Next Action</th>
-            <th scope="col">Website</th>
-            <th scope="col">Notes</th>
-            </tr>
-            </thead>
-            {{#each Application}}
-      {{#if this.UserId}}
-      <tbody>
+      <thead>
       <tr>
-      <th scope="row">{{this.date}}</th>
-      <td><a href="/company" type= "button" class = "company">{{this.companyName}}</a></td>
-      <td>{{this.jobTitle}}</td>
-      <td>{{this.stage}}</td>
-      <td>{{this.nextAction}}</td>
-      <td>{{this.website}}</td>
-      <td>{{this.notes}}</td>
+      <th scope="col">Date</th>
+      <th scope="col">Company Name</th>
+      <th scope="col">Job Title</th>
+      <th scope="col">Stage</th>
+      <th scope="col">Next Action</th>
+      <th scope="col">Website</th>
+      <th scope="col">Notes</th>
       </tr>
-      </tbody>
-          {{/if}}
-            {{/each}}
+      </thead>
+      {{#each Application}}
+          {{#if this.UserId}}
 
-            </table>
 
+          <tbody>
+          <tr>
+          <th scope="row">{{this.date}}</th>
+          <td><a href="/company" type= "button" class = "company tablecomp">{{this.companyName}}</a></td>
+          <td>{{this.jobTitle}}</td>
+          <td>{{this.stage}}</td>
+          <td>{{this.nextAction}}</td>
+          <td>{{this.website}}</td>
+          <td>{{this.notes}}</td>
+          </tr>
+          </tbody>
+
+
+    {{/if}}
+      {{/each}}
+
+      </table>
+    </div>
     </div>
   </div>
 
