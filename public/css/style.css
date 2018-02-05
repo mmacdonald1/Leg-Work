@@ -212,8 +212,7 @@ nav ul li ul li a{
   margin-top: 15px;
   margin-bottom: 5px;
   color: #fff;
-  display: flex;
-  justify-content: center;
+  text-align: center;
 }
 /*====== Members Page ==========*/
 
