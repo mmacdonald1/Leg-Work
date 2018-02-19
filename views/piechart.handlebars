@@ -1,10 +1,12 @@
 <!--- STYLE----------------------------------------------------->
     <style>
+/*------------ BAR CHART-----------------*/
   #chart{
     width: 800px;
     height: 400px;
     background-color: #f7f7f7;
     margin: 25px auto;
+    padding-bottom:20px;
 }
 .bar{
     display: inline-block;
@@ -13,21 +15,43 @@
     background-color: green;
     margin-right: 5px;
 }
+        #pietitle{
+            text-align: center;
+            margin:30px;
+        }
     </style>
 
 <!--- HTML----------------------------------------------------->
+  <nav>
+     <div class="row" id="nav-container">
+              <ul class="col-lg-12" id ="menu-items">
+                  <div class = "title">
 
+                    <li><a class="nav-items" href="/">LEG WORK</a></li>
+                  </div>
+                  <div class = "menu-items">
+                    <li><a class="nav-link" href="/members">Profile</a></li>
+                    <li><a class="nav-link" href="/company">Companies</a></li>
+                    <li><a class="nav-link" href="/piechart">Analytics</a></li>
+                    <li><a class="nav-link" href="/logout">Logout</a></li>
+                  </div>
+              </ul>
+      </div>
+    </nav>
+    
+   <h1 id="pietitle">Number of Applications by Date</h1>
     <div id="chart"></div>
 
 <!--- JS----------------------------------------------------->
     <script src="https://d3js.org/d3.v4.js"></script>
     <script>
-
+// BAR CHART VARIABLES------------------------------------------------------------------------
 var dates=[];
 var counts=[];
 var index= 0;
 
-//Retrieve data and organize it into array of dates and the number of applications on that date
+        
+//BAR CHART Retrieve data and organize it into array of dates and the number of applications on that date
         
 $.get("/api/piechart", function(data) {
 //console.log(data[0].date, "HERE IT IS");
@@ -42,9 +66,13 @@ for(var i=0; i< data.length; i++){
         counts.push(1);
     }
 }
+    generate(counts);
+    labels(counts);
 });
-   
-// Create SVG Element
+
+        
+        
+//BAR CHART Create SVG Element--------------------------------------------------------------------
 var chart_width     =   800;
 var chart_height    =   400;
 var bar_padding     =   5;
@@ -52,26 +80,51 @@ var svg             =   d3.select( '#chart' )
     .append( 'svg' )
     .attr( 'width', chart_width )
     .attr( 'height', chart_height );
-       
-// Bind Data and create bars
- 
+
+//BAR CHART Bind Data and create bars-------------------------------------------------------------
+function generate(counts){
 svg.selectAll( 'rect' )
     .data( counts )
     .enter()
     .append( 'rect' )
-    .attr('class', 'bar');
-//    .attr( 'x', function( d, i ){
-//        return i * ( chart_width / counts.length ); // 0 - 0, 1 - 40, 2, 80
-//    })
-//    .attr( 'y', function(d ){
-//        return chart_height - d * 5;
-//    })
-//    .attr( 'width', chart_width / counts.length - bar_padding )
-//    .attr( 'height', function( d ){
-//        return d * 5;
-//    })
-//    .attr( 'fill', '#7ED26D' );
+    .attr( 'x', function( d, i ){
+        return i * ( chart_width / counts.length ); // 0 - 0, 1 - 40, 2, 80
+    })
+    .attr( 'y', function(d ){
+        return chart_height - d * 50;
+    })
+    .attr( 'width', chart_width / counts.length - bar_padding )
+    .attr( 'height', function( d ){
+        return d * 50;
+    })
+    .attr( 'fill', '#7ED26D' );
+}
 
+function labels(counts){
+    //BAR CHART Create Labels------------------------------------------------------------------
+svg.selectAll( 'text' )
+    .data(counts)
+    .enter()
+    .append( 'text' )
+    .text(function( d ){
+        return d;
+    })
+    .attr( 'x', function( d, i ){
+        // 0 * ( 800 / 20 ) + ( 800 / 20 - 5 ) / 2
+        // 0 * ( 40 ) + ( 35 ) / 2
+        // 0 + 17.5
+        return i * ( chart_width / counts.length ) +
+                   ( chart_width / counts.length - bar_padding ) / 2;
+    })
+    .attr( 'y', function(d ){
+        return chart_height - (d * 50) + 15;
+    })
+    .attr( 'font-size', 14 )
+    .attr( 'fill', '#333' )
+    .attr( 'text-anchor', 'middle' );
+}
+        
 
+ 
     </script>
 
