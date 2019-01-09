@@ -17,8 +17,8 @@ https://legwork.herokuapp.com/
 * Sequelize
 * Passport
 * Handlebars
-* D3
-* AJAX
+* Node
+* Express
 * Javascript
 * Bootstrap
 * CSS
@@ -59,6 +59,4 @@ If the user wants to add a company they go to the add a company form to submit t
 
 ![Companies](https://github.com/mmacdonald1/Leg-Work/blob/master/public/assets/images/companies.png)
 
-The user also has an option to see the stages of their collective applications displayed in a piechart.
 
-![Analytics](https://github.com/mmacdonald1/Leg-Work/blob/master/public/assets/images/analytics.png)
